@@ -34,8 +34,8 @@ babel (stage 1-3) and may be incompatible with your bundler or settings.
 
 Use the Universal Module Definition (UMD)
 
-- [index.js](dist/index.js)
-- [index.min.js](dist/index.min.js) (minified)
+- [mapState.js](dist/mapState.js)
+- [mapState.min.js](dist/mapState.min.js) (minified)
 
 ## API
 
