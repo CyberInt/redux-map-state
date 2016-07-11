@@ -10,12 +10,12 @@ const exclude = [/node_modules/];
 const config = {
   context: srcPath,
 
-  entry: { index: 'index' },
+  entry: { mapState: 'index' },
 
   output: {
     path: distPath,
-    filename: `index${minified}.js`,
-    library: 'index',
+    filename: `mapState${minified}.js`,
+    library: 'mapState',
     libraryTarget: 'umd',
   },
 
