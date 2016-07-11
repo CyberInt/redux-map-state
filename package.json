@@ -1,6 +1,6 @@
 {
   "name": "redux-map-state",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Higher-order Redux reducer which helps apply your existent reducers on any format of state",
   "main": "lib/index.js",
   "scripts": {
