@@ -1,5 +1,5 @@
 # redux-map-state
-Helper function to apply your existent reducers on any format of state
+Higher-order Redux reducer which helps apply your existent reducers on any format of state
 
 ## Usage
 
