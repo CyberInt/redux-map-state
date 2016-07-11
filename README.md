@@ -26,8 +26,8 @@ Use this if you are using [rollup.js](http://rollupjs.org/) or
 ES2015 modules-compatible bundler which can eliminate unused library code with
 [tree-shaking](http://www.2ality.com/2015/12/webpack-tree-shaking.html).
 
-It is recommended to import the library from `redux-reuse/es6` instead of
-`redux-reuse/src` because the source code depends on experimental presets from
+It is recommended to import the library from `redux-map-state/es6` instead of
+`redux-map-state/src` because the source code depends on experimental presets from
 babel (stage 1-3) and may be incompatible with your bundler or settings.
 
 ### Other environments
