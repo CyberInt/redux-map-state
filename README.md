@@ -17,7 +17,7 @@ import mapState from 'redux-map-state';
 var mapState = require('redux-map-state');
 ```
 
-Or import ES2015 modules
+#### If you need ES6 module
 ```javascript
 import mapState from 'redux-map-state/es6';
 ```
