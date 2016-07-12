@@ -75,20 +75,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	/**
 	 * Creates a reducer wrapper which maps state before and after passing to a
 	 * reducer, but does it only for passed action types.
-	 * @param {function} [mapStateBefore=identity]
+	 * @param {object} options
+	 * @param {function} [options.mapStateBefore=identity]
 	 *   A function with signature: (stateBefore) => newStateBefore, where
 	 *   stateBefore is the original state, newStateBefore is passed to the reducer.
-	 * @param {function} [mapStateAfter=identity]
+	 * @param {function} [options.mapStateAfter=identity]
 	 *   A function with signature: (stateAfter) => newStateAfter, where
 	 *   stateAfter is returned by the reducer, newStateAfter is returned to the store.
-	 * @param {[string]} [actionTypes]
+	 * @param {string[]} [options.actionTypes]
 	 *   Action types to perform map state. Handles all actions if not provided.
 	 * @returns {function} a function of signature (reducer) => newReducer
 	 */
-	var withMapStateReducer = function withMapStateReducer() {
-	  var mapStateBefore = arguments.length <= 0 || arguments[0] === undefined ? identity : arguments[0];
-	  var mapStateAfter = arguments.length <= 1 || arguments[1] === undefined ? identity : arguments[1];
-	  var actionTypes = arguments[2];
+	var withMapStateReducer = function withMapStateReducer(_ref) {
+	  var _ref$mapStateBefore = _ref.mapStateBefore;
+	  var mapStateBefore = _ref$mapStateBefore === undefined ? identity : _ref$mapStateBefore;
+	  var _ref$mapStateAfter = _ref.mapStateAfter;
+	  var mapStateAfter = _ref$mapStateAfter === undefined ? identity : _ref$mapStateAfter;
+	  var _ref$actionTypes = _ref.actionTypes;
+	  var actionTypes = _ref$actionTypes === undefined ? null : _ref$actionTypes;
 
 	  var actionTypesDict = actionTypes && actionTypes.reduce(function (actionType, dict) {
 	    return _extends({}, dict, _defineProperty({}, actionType, true));

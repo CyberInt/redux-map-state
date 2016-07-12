@@ -43,9 +43,11 @@ Use the Universal Module Definition (UMD)
 
 ```js
 mapState(
-  mapStateBefore: ?(stateBefore: any) => newStateBefore,
-  mapStateAfter: ?(stateAfter: any) => newStateAfter,
-  actionTypes: ?Array<string>
+  options: {
+    mapStateBefore: ?(stateBefore: any) => newStateBefore,
+    mapStateAfter: ?(stateAfter: any) => newStateAfter,
+    actionTypes: ?Array<string>
+  }
 ): (reducer) => reducer
 ```
 
