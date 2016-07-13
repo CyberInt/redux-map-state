@@ -6,17 +6,17 @@ const identity = (value) => value;
 
 describe('mapState', () => {
   const ACTION = 'ACTION';
-  const mapStateBefore = (stateBefore) => ([stateBefore]);
-  const mapStateAfter = (stateAfter) => stateAfter[0];
+  const before = (stateBefore) => ([stateBefore]);
+  const after = (stateAfter) => stateAfter[0];
 
   it('maps state before passing to reducer', () => {
-    const _mapState = mapState({ mapStateBefore })(identity);
+    const _mapState = mapState({ before })(identity);
 
     expect(_mapState(null, {})).toEqual([null]);
   });
 
   it('maps state returned from reducer', () => {
-    const _mapState = mapState({ mapStateAfter })(identity);
+    const _mapState = mapState({ after })(identity);
 
     expect(_mapState([null], {})).toEqual(null);
   });

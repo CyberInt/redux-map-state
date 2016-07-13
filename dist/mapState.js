@@ -76,10 +76,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * Creates a reducer wrapper which maps state before and after passing to a
 	 * reducer, but does it only for passed action types.
 	 * @param {object} options
-	 * @param {function} [options.mapStateBefore=identity]
+	 * @param {function} [options.before=identity]
 	 *   A function with signature: (stateBefore) => newStateBefore, where
 	 *   stateBefore is the original state, newStateBefore is passed to the reducer.
-	 * @param {function} [options.mapStateAfter=identity]
+	 * @param {function} [options.after=identity]
 	 *   A function with signature: (stateAfter) => newStateAfter, where
 	 *   stateAfter is returned by the reducer, newStateAfter is returned to the store.
 	 * @param {string[]} [options.actionTypes]
@@ -87,10 +87,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @returns {function} a function of signature (reducer) => newReducer
 	 */
 	var withMapStateReducer = function withMapStateReducer(_ref) {
-	  var _ref$mapStateBefore = _ref.mapStateBefore;
-	  var mapStateBefore = _ref$mapStateBefore === undefined ? identity : _ref$mapStateBefore;
-	  var _ref$mapStateAfter = _ref.mapStateAfter;
-	  var mapStateAfter = _ref$mapStateAfter === undefined ? identity : _ref$mapStateAfter;
+	  var _ref$before = _ref.before;
+	  var before = _ref$before === undefined ? identity : _ref$before;
+	  var _ref$after = _ref.after;
+	  var after = _ref$after === undefined ? identity : _ref$after;
 	  var _ref$actionTypes = _ref.actionTypes;
 	  var actionTypes = _ref$actionTypes === undefined ? null : _ref$actionTypes;
 
@@ -105,7 +105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return reducer(state, action);
 	      }
 
-	      return mapStateAfter(reducer(mapStateBefore(state), action));
+	      return after(reducer(before(state), action));
 	    };
 	  };
 	};

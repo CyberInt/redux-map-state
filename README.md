@@ -44,8 +44,8 @@ Use the Universal Module Definition (UMD)
 ```js
 mapState(
   options: {
-    mapStateBefore: ?(stateBefore: any) => newStateBefore,
-    mapStateAfter: ?(stateAfter: any) => newStateAfter,
+    before: ?(stateBefore: any) => newStateBefore,
+    after: ?(stateAfter: any) => newStateAfter,
     actionTypes: ?Array<string>
   }
 ): (reducer) => reducer
@@ -64,8 +64,8 @@ it on subtree, which is only one object.
 ```js
 import listReducer from 'listReducer';
 
-const objectReducer = mapState(
-  (obj) => [obj],
-  (list) => list[0]
-)(listReducer);
+const objectReducer = mapState({
+  before: (obj) => [obj],
+  after: (list) => list[0]
+})(listReducer);
 ```
