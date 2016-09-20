@@ -94,7 +94,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var _ref$actionTypes = _ref.actionTypes;
 	  var actionTypes = _ref$actionTypes === undefined ? null : _ref$actionTypes;
 
-	  var actionTypesDict = actionTypes && actionTypes.reduce(function (actionType, dict) {
+	  var actionTypesDict = actionTypes && actionTypes.reduce(function (dict, actionType) {
 	    return _extends({}, dict, _defineProperty({}, actionType, true));
 	  }, {});
 

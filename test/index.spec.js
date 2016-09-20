@@ -5,7 +5,9 @@ import mapState from 'index';
 const identity = (value) => value;
 
 describe('mapState', () => {
-  const ACTION = 'ACTION';
+  const ACTION1 = 'ACTION1';
+  const ACTION2 = 'ACTION2';
+  const ACTION3 = 'ACTION3';
   const before = (stateBefore) => ([stateBefore]);
   const after = (stateAfter) => stateAfter[0];
 
@@ -22,10 +24,13 @@ describe('mapState', () => {
   });
 
   it('handles specified action types', () => {
-    const baseReducer = (state = null, action) => action.type === ACTION ? 'newState' : state;
-    const _mapState = mapState({ actionTypes: [ACTION] })(baseReducer);
+    const baseReducer = (state = null, action) => state;
+    const _mapState = mapState({
+      before,
+      actionTypes: [ACTION1, ACTION2],
+    })(baseReducer);
 
-    expect(_mapState('initialState', { type: ACTION })).toBe('newState');
-    expect(_mapState('initialState', { type: 'action2' })).toBe('initialState');
+    expect(_mapState('initialState', { type: ACTION1 })).toEqual(['initialState']);
+    expect(_mapState('initialState', { type: ACTION3 })).toEqual('initialState');
   });
 });

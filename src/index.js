@@ -22,7 +22,7 @@ const withMapStateReducer = ({
   actionTypes = null,
 }) => {
   const actionTypesDict = actionTypes && actionTypes.reduce(
-    (actionType, dict) => ({ ...dict, [actionType]: true }), {}
+    (dict, actionType) => ({ ...dict, [actionType]: true }), {}
   );
 
   return (reducer = nullReducer) => (state, action) => {
